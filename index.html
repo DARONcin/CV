@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV Daron Tarín</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Daron Tarín</h1>
+      <p class="subtitle">Desarrollador Full Stack)</p>
+
+      <nav>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section>
+      <h2>Texto</h2>
+      <p>
+        Soy una persona enfocada en resultados. Desarrollo soluciones claras y funcionales,
+        con comunicación directa y enfoque en calidad.
+      </p>
+
+      <a class="cta" href="#contacto">Contáctame</a>
+      <a class="cta secondary" href="#proyectos">Ver proyectos</a>
+    </section>
+
+    <section id="proyectos">
+      <h2>Histórico de empleos / proyectos</h2>
+
+      <div class="item">
+        <strong>Encargado de TI – Coordinación de Proyectos y Plataformas Digitales</strong>
+        <div class="meta">Instituto de Innovación y Competitividad •  Agosto 2025 – Actualidad</div>
+        <ul>
+          <li>Lidero el desarrollo de la plataforma SEI, aplicando buenas prácticas de documentación y control de versiones en GitHub.</li>
+          <li>Defino y valido nuevas implementaciones en la plataforma FECTI, asegurando su alineación técnica con los objetivos institucionales.</li>
+          <li>Administro infraestructura crítica: Microsoft 365 Tenant, Entra, servidores, cPanel, WordPress, Zoom y MS Teams.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <strong>Programador Full Stack (Python / Next.js / V0)</strong>
+        <div class="meta">Instituto de Innovación y Competitividad •  Abril 2025 – Agosto 2025</div>
+        <ul>
+          <li>Participé en el desarrollo de la plataforma SECCTI (Sistema Estatal de Investigadores) para la gestión de Perfiles Únicos.</li>
+          <li>Implementé un módulo de OCR (Reconocimiento Óptico de Caracteres) para la digitalización y captura automatizada de información.</li>
+          <li>Construí interfaces dinámicas en Next.js e integré back-end en Python, asegurando funcionalidad y rendimiento.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <strong>Desarrollador de Front-End</strong>
+        <div class="meta">Nether Raven Technologies • Agosto 2023 – Abril 2025</div>
+        <ul>
+          <li>Aptitudes: Inglés · Programación · astro.js · Desarrollo front end · Resolución de problemas · HTML5 · Firebase · Node.js · Ingeniería · Comunicación</li>
+          <li>Tecnologías / herramientas</li>
+        </ul>
+      </div>
+      <h1>Captura de mi proyecto más reciente</h1>
+      <img sizes="" src="image.png" alt="sei.chihuahua" style="width: 800px; height: auto;">
+    </section>
+
+    <section id="contacto">
+      <h2>Formulario (Contáctame)</h2>
+      <p style="margin-top:-6px; color:#555; font-size:14px;">
+        Este formulario abre tu app de correo para enviar el mensaje.
+      </p>
+
+      <form id="contactForm">
+        <label for="name">Nombre</label>
+        <input id="name" type="text" required placeholder="Tu nombre" />
+
+        <label for="email">Correo</label>
+        <input id="email" type="email" required placeholder="tu@correo.com" />
+
+        <label for="subject">Asunto</label>
+        <input id="subject" type="text" required placeholder="Ej. Proyecto / Vacante" />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" required placeholder="Escribe tu mensaje..."></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer>
+      © <span id="year"></span> • Si lo puedes imaginar, lo puedo crear!
+    </footer>
+  </div>
+
+  <script>
+
+    const DEST_EMAIL = "daroncin@hotmail.com";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const fullSubject = `${subject} - ${name}`;
+      const body =
+`Nombre: ${name}
+Correo: ${email}
+
+Mensaje:
+${message}
+`;
+
+      const mailto = `mailto:${encodeURIComponent(DEST_EMAIL)}?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+  </script>
+</body>
+</html>
