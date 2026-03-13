@@ -20,20 +20,24 @@ const urlsToCache = [
 ];
 
 self.addEventListener('install', e => {
+    console.log('[SW] install event');
     e.waitUntil(
         caches.open(CACHE_NAME)
         .then(cache => {
+            console.log('[SW] caching files');
             return cache.addAll(urlsToCache)
                 .then(() => {
+                    console.log('[SW] cache complete, skipWaiting');
                     self.skipWaiting();
                 });
         })
-        .catch(err => console.log('No se ha registrado el cache', err))
+        .catch(err => console.error('[SW] fallo al abrir cache', err))
     );
 });
 
 // Activación del Service Worker
 self.addEventListener('activate', e => {
+    console.log('[SW] activate event');
     const cacheWhitelist = [CACHE_NAME];
 
     e.waitUntil(
@@ -43,26 +47,38 @@ self.addEventListener('activate', e => {
                 // Eliminar caches que no estén en la whitelist
                 cacheNames.map(cacheName => {
                     if (cacheWhitelist.indexOf(cacheName) === -1) {
+                        console.log('[SW] deleting old cache', cacheName);
                         return caches.delete(cacheName);
                     }
                 })
             );
         })
-        .then(() => self.clients.claim()
-        )
+        .then(() => {
+            console.log('[SW] claim clients');
+            return self.clients.claim();
+        })
     );
 });
 
 self.addEventListener('fetch', e => {
+    // filtrar solo peticiones GET
+    if (e.request.method !== 'GET') {
+        return;
+    }
     e.respondWith(
         caches.match(e.request)
         .then(response => {
             if (response) {
-                // Devuelve el recurso desde el cache
+                console.log('[SW] fetch from cache:', e.request.url);
                 return response;
             }
-            // Si no está en el cache, realiza la petición a la red
-            return fetch(e.request);
+            console.log('[SW] fetch from network:', e.request.url);
+            return fetch(e.request)
+                .catch(err => {
+                    // si la red falla, devolver un recurso por defecto si existe
+                    console.error('[SW] fetch error, offline?', err);
+                    // opcional: return caches.match('/offline.html');
+                });
         })
     );
 });

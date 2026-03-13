@@ -11,58 +11,58 @@
     "lang": "es-MX",
     "icons": [
         {
-            "src": "img/mvr_1024x1024.png",
+            "src": "img/dtg_1024x1024.png",
             "sizes": "1024x1024",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_512x512.png",
+            "src": "img/dtg_512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_384x384.png",
+            "src": "img/dtg_384x384.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_256x256.png",
+            "src": "img/dtg_256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_192x192.png",
+            "src": "img/dtg_192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         
          {
-            "src": "img/mvr_144x144.png",
+            "src": "img/dtg_144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_128x128.png",
+            "src": "img/dtg_128x128.png",
             "sizes": "128x128",
             "type": "image/png"
         },
         
                 {
-            "src": "img/mvr_96x96.png",
+            "src": "img/dtg_96x96.png",
             "sizes": "96x96",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_64x64.png",
+            "src": "img/dtg_64x64.png",
             "sizes": "64x64",
             "type": "image/png"
         },
         {
-            "src": "img/mvr_32x32.png",
+            "src": "img/dtg_32x32.png",
             "sizes": "32x32",
             "type": "image/png"
         },        {
-            "src": "img/mvr_16x16.png",
+            "src": "img/dtg_16x16.png",
             "sizes": "16x16",
             "type": "image/png"
         }
